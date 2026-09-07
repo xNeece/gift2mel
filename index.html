@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#28232c">
+
+    <script>
+      (() => {
+        const saved = localStorage.getItem("melcita-theme");
+        if (saved === "light" || saved === "dark") {
+          document.documentElement.dataset.theme = saved;
+        }
+      })();
+    </script>
+
+    <title>Happy Birthday Melcita.🌷 — V2.8</title>
+
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=DM+Serif+Display&family=Quicksand:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="custom-cursor" id="custom-cursor" aria-hidden="true">
+        <span class="cursor-ring"></span>
+        <span class="cursor-charm">🍮</span>
+    </div>
+
+    <!-- Selector de tema: disponible desde la portada -->
+    <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Cambiar a modo claro" aria-pressed="false">
+        <span class="theme-track">
+            <span class="theme-icon moon" aria-hidden="true">☾</span>
+            <span class="theme-icon sun" aria-hidden="true">☀</span>
+            <span class="theme-thumb"></span>
+        </span>
+    </button>
+
+    <!-- ==========================================
+         PANTALLA DE INICIO
+    =========================================== -->
+
+    <section id="opening-screen" class="opening-screen">
+    <div class="opening-aura"></div>
+    <div class="opening-particles" aria-hidden="true"></div>
+    <div class="opening-orbit orbit-one" aria-hidden="true"></div>
+    <div class="opening-orbit orbit-two" aria-hidden="true"></div>
+
+    <div class="cover-stage">
+        <div class="cover-book" id="cover-book">
+            <div class="cover-inside" aria-hidden="true">
+                <span>✦</span>
+                <span>Para vos, Mel</span>
+                <span>♡</span>
+            </div>
+
+            <div class="cover-spine" aria-hidden="true"></div>
+
+            <div class="opening-content">
+                <div class="cover-kicker">
+                    <span>un pequeño recuerdo</span>
+                    <i>♡</i>
+                </div>
+
+                <div class="tiny-tulip">🌷</div>
+
+                <p class="small-opening">
+                    Hay algo que preparé especialmente para vos...
+                </p>
+
+                <h1>Para Mel</h1>
+
+                <p class="nicknames">
+                    La más Watona · 🍔
+                </p>
+
+                <div class="cover-divider">
+                    <span></span><i>✿</i><span></span>
+                </div>
+
+                <div class="gift-container">
+                    <div class="gift-glow"></div>
+                    <div class="gift-box">
+                        <div class="gift-ribbon"></div>
+                        <div class="gift-lid"><span>✦</span></div>
+                        <div class="gift-body"><span>🌷</span></div>
+                    </div>
+                </div>
+
+                <button id="open-gift" class="main-button">
+                    <span>ABRÍ TU REGALO</span>
+                    <span class="button-flower">🌷</span>
+                </button>
+
+                <p class="opening-hint">
+                    Relajate con la música y preparate para abrirlo ♫
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="opening-footer" aria-hidden="true">
+        <span>♡</span><span> recuerdos · risas · tulipanes </span><span>♡</span>
+    </div>
+</section>
+
+<!-- ==========================================
+         CONTENIDO PRINCIPAL
+    =========================================== -->
+
+    <main id="main-content" class="hidden">
+
+        <!-- Decoración general -->
+
+        <div class="ambient-waves" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+        <div class="ambient-particles" aria-hidden="true"></div>
+        <div class="floating-tulips" id="floating-tulips" aria-hidden="true"></div>
+
+
+        <!-- ======================================
+             REPRODUCTOR DE MÚSICA
+        ======================================= -->
+
+        <div class="music-player">
+
+            <div class="music-info">
+                <span class="music-note">♫</span>
+
+                <div>
+                    <small>▶︎•၊၊||၊|။|||||။၊|။•</small>
+                    <strong>Rooftop View 🐾</strong>
+                </div>
+            </div>
+
+            <button id="music-toggle"
+                    class="music-button"
+                    aria-label="Pausar música">
+
+                <span id="music-icon">Ⅱ</span>
+
+            </button>
+
+        </div>
+
+        <audio id="background-music"
+               src="assets/musica/musica.mp3"
+               loop>
+        </audio>
+
+
+        <!-- ======================================
+             LIBRO
+        ======================================= -->
+
+        <section class="book-wrapper">
+
+            <div class="book-shadow"></div>
+
+            <div id="book" class="book">
+
+                <!-- ==================================
+                     PÁGINA 1
+                =================================== -->
+
+                <article class="page active"
+                         data-page="1">
+
+                    <div class="page-decoration top-left">✿</div>
+                    <div class="page-decoration bottom-right">🌷</div>
+
+                    <div class="page-inner center-page">
+
+                        <span class="chapter-number">
+                            CAPÍTULO I
+                        </span>
+
+                        <h2>
+                            <span class="title-gradient-text">Felicidades,
+                            <span>Melzinha</span></span> <span class="title-emoji">🎈🎂</span>
+                        </h2>
+                        <h2>(っ˶ ˘ ᵕ˘)ˆᵕ ˆ˶ς)</h2>
+                        <div class="decorative-line">
+                            <span>♡</span>
+                        </div>
+
+                        <p class="large-message">
+                            Te deseo lo mejor para este dia,
+                            que la pases bien y ya no andes sad,
+                            al menos por hoy che. Te quiero mucho,
+                            gracias por todos los momentos compartidos,
+                            las risas, y porque no los enojos tambien (?) okno
+                        </p>
+
+                        <p>
+                            Así que en tu dia decidi prepar este pequeño espacio
+                            ya que no quisiste que te mande algo (se deprime),
+                            y poder dedicarte algunas palabras y un poquito
+                            del enorme cariño que te tengo.
+                        </p>
+                        <img src="assets/portada/torta.png"
+                                     alt="Pompompurin" width="300" height="200" class="letter-render page1-render">
+
+                        <div class="mini-flower">
+                            🌷
+                        </div>
+
+                        <p class="signature">
+                            Para vos, Wawa 💛
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- ==================================
+                     PÁGINA 2
+                =================================== -->
+
+                <article class="page"
+                         data-page="2">
+
+                    <div class="page-inner">
+
+                        <span class="chapter-number">
+                            CAPÍTULO II
+                        </span>
+
+                        <h2>
+                            Pompompurin te regala
+                         </h2>
+                           <h2><span class="title-gradient-text">un tulipan</span> <span class="title-emoji">🌷</span>
+                        </h2>
+
+                        <div class="memory-layout">
+
+                            <div class="memory-image portrait">
+
+                                <img src="assets/recuerdos/purin.png"
+                                     alt="Pompompurin" class="letter-render page2-render">
+
+                                <div class="image-caption">
+                                    Te deso un lindo dia. Come bien. 💛
+                                </div>
+
+                            </div>
+
+                            <div class="memory-text">
+
+                                <p>
+                                    Hay personas con las que uno
+                                    simplemente disfruta compartir
+                                    momentos.
+                                </p>
+
+                                <p>
+                                    No importa si estamos hablando,
+                                    jugando, riéndonos de alguna
+                                    boludez o simplemente pasando
+                                    el rato.
+                                </p>
+
+                                <p class="highlight">
+                                    De alguna manera,
+                                    esos pequeños momentos terminan
+                                    siendo los que más se recuerdan y
+                                    aprecian.
+                                </p>
+
+                                <p>
+                                    Así que quería recordarte algunos de esos
+                                    momentos acá.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- ==================================
+                     PÁGINA 3
+                =================================== -->
+
+                <article class="page"
+                         data-page="3">
+
+                    <div class="page-inner">
+
+                        <span class="chapter-number">
+                            CAPÍTULO III
+                        </span>
+
+                        <h2>
+                            <span class="title-gradient-text">Algunos recuerdos</span> <span class="title-emoji">🕙💭</span>
+                        </h2>
+                       <h2>────୨ৎ────</h2>
+
+                        <div class="gallery">
+
+                            <div class="gallery-card">
+
+                                <img src="assets/recuerdos/recuerdo1.png"
+                                     alt="Recuerdo">
+
+                                <div class="gallery-caption">
+                                    El Gray y yo flotando y bugeados como siempre.
+                                </div>
+
+                            </div>
+
+
+                            <div class="gallery-card">
+
+                                <img src="assets/recuerdos/peak2.png"
+                                     alt="Recuerdo">
+
+                                <div class="gallery-caption">
+                                    Nuestra selfie antes de
+                                    que pasemos a mejor vida o
+                                    como fantasma specteando al otro
+                                    hasta que muera. ♡
+                                </div>
+
+                            </div>
+
+
+                            <div class="gallery-card">
+
+                                <img src="assets/recuerdos/image.png"
+                                     alt="Backrooms">
+
+                                <div class="gallery-caption">
+                                    ¿Y recorda esto? en el Backroom. Hasta los monstruos
+                                    quisieron venir a festejar tu dìa. 🎂
+                                </div>
+
+                            </div>
+
+                            <div class="gallery-card">
+
+                                <img src="assets/recuerdos/peak1.png"
+                                     alt="Recuerdo">
+
+                                <div class="gallery-caption">
+                                    Asi de watona y queriendo escalar montañas. uwu
+                                </div>
+
+                            </div>
+
+
+
+                            <div class="gallery-card">
+
+                                <img src="assets/recuerdos/image2.png"
+                                     alt="Recuerdo">
+
+                                <div class="gallery-caption">
+                                    Me bugeo en la escalera y el otro no tiene mejor idea que
+                                    tambien subirse y bugearse conmigo xD.
+                                </div>
+
+                            </div>
+
+                            <div class="gallery-card">
+
+                                <img src="assets/recuerdos/peak3.png"
+                                     alt="Recuerdo">
+
+                                <div class="gallery-caption">
+                                    Yo observandote atentamente,
+                                    como vas a morir.
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- ==================================
+                     PÁGINA 4 - MOBILE LEGENDS
+                =================================== -->
+
+                <article class="page gaming-page"
+                         data-page="4">
+
+                    <div class="page-inner">
+
+                        <img class="page4-playing-render" src="assets/puri/jugando.png" alt="Pompompurin jugando">
+
+                        <span class="chapter-number">
+                            CAPÍTULO IV · MOBILE LEGENDS
+                        </span>
+
+                        <h2>
+                            Los héroes de mi dúa
+                        </h2>
+                        <h2><span class="title-gradient-text">Top Global</span> <span class="title-emoji">🌎📱</span></h2>
+
+                        <p class="page-intro">
+                            Porque con estos héroes y tu gran ayuda haces que
+                            las ranked sean menos estresantes, se ganen más, se pueda manquear
+                            y pasar buenos momentos. (perdian todo y se estresaban)
+                        </p>
+
+
+                        <div class="heroes-grid">
+
+                            <!-- ANGELA -->
+
+                            <div class="hero-card">
+
+                                <div class="hero-glow"></div>
+
+                                <img src="assets/personajes/angela.png"
+                                     alt="Angela">
+
+                                <div class="hero-info">
+
+                                    <h3>Angela</h3>
+
+                                    <p>
+                                        Papi papi pum. Solo ulteame a mi che
+                                        o me cago muriendo. ❤️‍🩹💊
+
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- FLORYN -->
+
+                            <div class="hero-card">
+
+                                <div class="hero-glow"></div>
+
+                                <img src="assets/personajes/floryn.png"
+                                     alt="Floryn" class="floryn-render">
+
+                                <div class="hero-info">
+
+                                    <h3>Floryn</h3>
+
+                                    <p>
+                                        La mejor si queres quedarte en base y sacar MVP (?)🩹✙
+                                        Y solo debes darme la florcito de la pasiva a mi. 😡
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- KADITA -->
+
+                            <div class="hero-card">
+
+                                <div class="hero-glow"></div>
+
+                                <img src="assets/personajes/kadita.png"
+                                     alt="Kadita">
+
+                                <div class="hero-info">
+
+                                    <h3>Kadita</h3>
+
+                                    <p>
+                                        La pescado experta en campear,
+                                        con ella, y Jhonson recuerda los mvp que
+                                        sacabas. (De nada) 🌊
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- BELERICK -->
+
+                            <div class="hero-card">
+
+                                <div class="hero-glow"></div>
+
+                                <img src="assets/personajes/belerick.png"
+                                     alt="Belerick">
+
+                                <div class="hero-info">
+
+                                    <h3>Belerick</h3>
+
+                                    <p>
+                                        Igualita a vos, aguanta todo
+                                        y acostumbrado al dolor. okno tqm 🌳
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <p class="gaming-footer">
+                            Y por todos aquellos que aprenderemos a jugarlos... ✊x✊
+                            sacaba Rafaela JG (?)♡
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- ==================================
+                     PÁGINA 5 - MADISON
+                =================================== -->
+
+                <article class="page horror-page"
+                         data-page="5">
+
+                    <div class="horror-overlay"></div>
+
+                    <div class="page-inner horror-inner">
+
+                        <img class="page5-scared-render" src="assets/puri/asustado.gif" alt="Pompompurin asustado">
+
+                        <span class="chapter-number">
+                            CAPÍTULO V
+                        </span>
+
+                        <div class="horror-title">
+                            <span>POR AQUELLAS NOCHES DE STREAM...</span>
+                            <h2>
+                                <span class="title-gradient-text">MADiSON</span> <span class="title-emoji">😨📸</span>
+                            </h2>
+                        </div>
+
+                        <div class="horror-content">
+
+                            <div class="horror-image">
+
+                                <img src="assets/madison/madinson.gif"
+                                     alt="MADiSON">
+
+                                <div class="scanlines"></div>
+
+                            </div>
+
+                            <div class="horror-text">
+
+                                <p>
+                                    Y como olvidar que me regalaste
+                                    el juego, solo para que me cagara
+                                    encima y vos riendote de mis desgracias :)
+                                    Igual gracias, se la pasó re bien esas noches.
+                                </p>
+
+                                <p>
+                                    Yo transmitiéndote
+                                    <strong>MADiSON</strong>
+                                    por Discord...
+                                </p>
+
+                                <p class="glitch-text">
+                                    y nosotros pensando que
+                                    iba a ser una buena idea y
+                                    seria divertido.
+                                </p>
+
+                                <p>
+                                    Spoiler:
+                                    Lo fue, pero no me gusta los scream. 😞
+                                    Lo importante es que lo disfrutsate
+                                    de inicio a fin.
+                                </p>
+
+                                <span class="horror-signature">
+                                  ﮩ٨ـﮩﮩ٨ـ🫀ﮩ٨ـﮩﮩ٨ـ
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- ==================================
+                     PÁGINA 6 - ÁNIMO
+                =================================== -->
+
+                <article class="page"
+                         data-page="6">
+
+                    <div class="page-inner">
+
+                        <span class="chapter-number">
+                            CAPÍTULO VI
+                        </span>
+
+                        <h2>
+                            <span class="title-gradient-text">Para esos días difíciles</span> <span class="title-emoji">💌</span>
+                        </h2>
+
+                        <p class="page-intro">
+                            Guardá esta página para esos días
+                            en los que necesites un poquito
+                            de ánimo.
+                        </p>
+
+
+
+
+                        <div class="message-cards">
+
+                            <div class="message-card">
+
+                                <img class="message-gif" src="assets/puri/sad.gif" alt="Pompompurin triste">
+
+                                <div class="message-icon">
+                                    🌷
+                                </div>
+
+                                <h3>
+                                    Si estás triste...
+                                </h3>
+
+                                <p>
+                                    Recordá que no todos los días
+                                    tienen que ser buenos.
+                                    Algunos simplemente hay que
+                                    atravesarlos. Ya vendrán mejores...
+                                </p>
+
+                            </div>
+
+
+                            <div class="message-card">
+
+                                <img class="message-gif" src="assets/madison/e45ca9f927691497c3eac6a4473a23f4.gif" alt="Pompompurin cansado">
+
+                                <div class="message-icon">
+                                    💛
+                                </div>
+
+                                <h3>
+                                    Si estás cansada...
+                                </h3>
+
+                                <p>
+                                    Está bien detenerse un rato.
+                                    No tenés que poder con todo
+                                    todo el tiempo. Todo a su ritmo,
+                                    avanza así...
+                                </p>
+
+                            </div>
+
+
+                            <div class="message-card">
+
+                                <img class="message-gif" src="assets/puri/dudas.gif" alt="Pompompurin dudando">
+
+                                <div class="message-icon">
+                                    ⭐
+                                </div>
+
+                                <h3>
+                                    Si dudás de vos...
+                                </h3>
+
+                                <p>
+                                    Espero que algún día puedas
+                                    verte con los mismos ojos
+                                    con los que te ven las personas
+                                    que te quieren. 👁️
+                                </p>
+
+                            </div>
+
+
+                            <div class="message-card special-card">
+
+                                <img class="message-gif" src="assets/madison/triste.gif" alt="Pompompurin triste">
+
+                                <div class="message-icon">
+                                    🫶
+                                </div>
+
+                                <h3>
+                                    Y si todo sale mal...
+                                </h3>
+
+                                <p>
+                                    Siempre podés venir a molestar
+                                    a tu Watón. 😌🫰
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- ==================================
+                     PÁGINA 7 - AUDIO
+                =================================== -->
+
+                <article class="page voice-page"
+                         data-page="7">
+
+                    <div class="page-inner center-page">
+
+                        <span class="chapter-number">
+                            CAPÍTULO VII
+                        </span>
+
+                        <img class="page7-render" src="assets/puri/escuchar.gif" alt="Render de Pompompurin escuchando">
+
+                        <h2>
+                            <span class="title-gradient-text">Esta vez quiero decírtelo yo</span> <span class="title-emoji">🎙️🗣️</span>
+                        </h2>
+
+                        <div class="voice-decoration">
+
+                            <div class="voice-circle">
+                                🎧
+                            </div>
+
+                            <div class="sound-wave">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+
+                        </div>
+
+                        <p class="voice-description">
+                            Porque aunque sean simples, hay cosas que se sienten mejor
+                            cuando se dicen en lugar de escribirlas.
+                        </p>
+
+                        <button id="voice-button"
+                                class="voice-button">
+
+                            <span id="voice-icon">
+                                ▶
+                            </span>
+
+                            <span id="voice-text">
+                                Escuchar mi mensaje
+                            </span>
+
+                        </button>
+
+                        <p id="voice-status"
+                           class="voice-status">
+                            Perdona si me pongo nervioso
+                            o se escuchan mis gallitos. Ahre
+                        </p>
+
+                        <audio id="voice-audio"
+                               src="assets/voz/mensaje.mp3">
+                        </audio>
+
+                    </div>
+
+                </article>
+
+
+                <!-- ==================================
+                     PÁGINA 8 - FINAL
+                =================================== -->
+
+                <article class="page final-page"
+                         data-page="8">
+
+                    <div class="final-particles"></div>
+
+                    <div class="page-inner center-page">
+
+                        <span class="chapter-number">
+                            FINAL
+                        </span>
+
+                        <div class="final-flower">
+                            🌷
+                        </div>
+
+                        <h2>
+                            <span class="title-gradient-text">Feliz cumpleaños,
+                            <span>MEL</span></span> <span class="title-emoji">💛</span>
+                        </h2>
+
+                        <div class="decorative-line">
+                            <span>♡</span>
+                        </div>
+
+                        <p class="final-message">
+
+                            Espero que este pequeño regalo
+                            te haya sacado aunque sea
+                            una sonrisa y te haya sumado a tu
+                            gran día. tqm
+
+                        </p>
+
+                        <p class="final-message">
+
+                            Deseo que este nuevo año de tu vida
+                            esté lleno de momentos bonitos,
+                            personas que te quieran,
+                            metas cumplidas,
+                            muchas más partidas,
+                            menos derrotas... (hay que mejorar el WR che)
+
+                        </p>
+
+                        <p class="final-message">
+
+                            y muchísimos tulipanes, chocolates, y pochoclos para ver películas.
+
+                           <p class="final-message"> ༼ つ ◕_◕ ༽つ🍿🍰🥪🍔🍕</p>
+
+
+                        </p>
+
+                        <div class="final-divider">
+                            ✦ · ✦ · ✦
+                        </div>
+
+                        <p class="final-signature">
+                            Con cariño,<br>
+                            de quien te aprecia muchísimo...
+                            Chris.
+                        </p>
+
+                        <img class="page8-render" src="assets/puri/despedida.gif" alt="Render de despedida">
+
+                        <div class="pompom-final">
+                            ⋆｡‧˚ʚ🍓ɞ˚‧｡⋆
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+
+            <!-- ======================================
+                 CONTROLES DEL LIBRO
+            ======================================= -->
+
+            <button id="prev-page"
+                    class="book-control previous"
+                    aria-label="Página anterior">
+
+                ‹
+
+            </button>
+
+
+            <button id="next-page"
+                    class="book-control next"
+                    aria-label="Página siguiente">
+
+                ›
+
+            </button>
+
+
+            <div id="page-counter"
+                 class="page-counter">
+
+                1 / 8
+
+            </div>
+
+        </section>
+
+
+        <!-- ======================================
+             INDICACIÓN DE NAVEGACIÓN
+        ======================================= -->
+
+        <div class="navigation-help">
+
+            <span>←</span>
+            <span>Pasá las páginas</span>
+            <span>→</span>
+
+        </div>
+
+    </main>
+
+
+    <!-- VISOR DE RECUERDOS -->
+<div id="memory-modal" class="memory-modal hidden" aria-hidden="true">
+    <button id="memory-modal-close" class="memory-modal-close" aria-label="Cerrar imagen">×</button>
+    <div class="memory-modal-backdrop"></div>
+    <div class="memory-modal-card" role="dialog" aria-modal="true" aria-label="Recuerdo ampliado">
+        <div class="memory-modal-image-wrap">
+            <img id="memory-modal-image" src="" alt="">
+        </div>
+        <div class="memory-modal-copy">
+            <span>♡ recuerdo</span>
+            <p id="memory-modal-caption"></p>
+        </div>
+    </div>
+</div>
+
+
+<!-- ==========================================
+         MENSAJE DE CIERRE
+    =========================================== -->
+
+    <div id="ending-message"
+         class="ending-message hidden">
+
+        <div class="ending-content">
+
+            <button id="close-ending-x" class="ending-close-x" type="button" aria-label="Cerrar">×</button>
+
+            <span>🌷</span>
+
+            <h2>
+                Gracias por llegar hasta acá.
+            </h2>
+
+            <p>
+                Espero que este pequeño rincón
+                te acompañe un poquito.
+            </p>
+
+            <button id="close-ending">
+                Volver a mirar 💛
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
