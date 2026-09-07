@@ -305,7 +305,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const modalCaption = $("#memory-modal-caption");
   const modalClose = $("#memory-modal-close");
 
-  $$(".gallery-card, .memory-image, .horror-image").forEach(card => {
+    $$(".gallery-card, .memory-image, .horror-image, .hero-card").forEach(card => {
     card.addEventListener("click", event => {
       const image = $("img", card);
       if (!image || !modal || !modalImage) return;
@@ -390,10 +390,12 @@ document.addEventListener("DOMContentLoaded", () => {
     cursorLoop();
   }
 
-  /* =======================================================
-     PARALLAX / ALTERNATING RENDER MOTION
-     ======================================================= */
-  $$(".hero-card, .memory-image, .gallery-card").forEach((card, cardIndex) => {
+/* =======================================================
+   PARALLAX / ALTERNATING RENDER MOTION
+   ======================================================= */
+
+  $$(".memory-image, .gallery-card").forEach((card, cardIndex) => {
+
     card.addEventListener("mousemove", event => {
       if (!window.matchMedia("(hover:hover) and (pointer:fine)").matches) return;
 
@@ -406,18 +408,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const rotateX = py * -4;
       const rotateY = px * 5;
-      const moveX = px * (card.classList.contains("hero-card") ? 6 : 3);
-      const moveY = py * (card.classList.contains("hero-card") ? 5 : 3);
+      const moveX = px * 3;
+      const moveY = py * 3;
 
       image.style.transform =
-        `translate3d(${moveX}px,${moveY}px,0) scale(${card.classList.contains("hero-card") ? 1.06 : 1.025})`;
+      `translate3d(${moveX}px,${moveY}px,0) scale(1.025)`;
+
       card.style.transform =
-        `perspective(700px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-3px)`;
+      `perspective(700px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-3px)`;
     });
 
     card.addEventListener("mouseleave", () => {
       const image = $("img", card);
-      if (image) image.style.transform = "";
+
+      if (image) {
+        image.style.transform = "";
+      }
+
       card.style.transform = "";
     });
   });

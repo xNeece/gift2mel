@@ -2895,4 +2895,252 @@ background: rgba(217, 173, 98, .12);
   }
 }
 ```
+```css
 
+/* =========================================================
+ *  PÁGINA 4 — HÉROES EN ESCALA DE GRISES
+ *  Color y pequeño zoom al pasar el cursor
+ *  ========================================================= */
+
+.hero-card {
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+  transition:
+  transform .45s cubic-bezier(.2,.8,.2,1),
+  border-color .4s ease,
+  box-shadow .4s ease;
+}
+
+/* Estado normal: gris */
+.hero-card img {
+  filter: grayscale(100%) saturate(0%);
+  transform: scale(1);
+  transition:
+  filter .55s ease,
+  transform .55s cubic-bezier(.2,.8,.2,1);
+}
+
+/* Al pasar el cursor: color + pequeño zoom */
+.hero-card:hover img {
+  filter: grayscale(0%) saturate(1);
+  transform: scale(1.035);
+}
+
+/* Pequeño levantamiento, sin exagerar */
+.hero-card:hover {
+  transform: translateY(-3px);
+}
+
+/* En pantallas táctiles */
+@media (hover: none) {
+  .hero-card img {
+    filter: grayscale(100%) saturate(0%);
+    transform: scale(1);
+  }
+
+  .hero-card:hover {
+    transform: none;
+  }
+}
+```css
+/* =========================================================
+ *   PÁGINA 4 — HEROES EN BLANCO Y NEGRO
+ *   Color + zoom al pasar el cursor
+ *   ========================================================= */
+
+.hero-card {
+  position: relative;
+  cursor: pointer;
+
+  overflow: hidden;
+
+  transition:
+  transform .45s cubic-bezier(.2,.8,.2,1),
+  filter .6s ease,
+  border-color .4s ease,
+  box-shadow .45s ease;
+}
+
+/* Imagen inicialmente en escala de grises */
+.hero-card img {
+  filter: grayscale(100%) saturate(0%);
+  transform: scale(1);
+
+  transition:
+  filter .7s cubic-bezier(.2,.8,.2,1),
+  transform .8s cubic-bezier(.2,.8,.2,1);
+}
+
+/* Al pasar el cursor: vuelve el color */
+.hero-card:hover img {
+  filter: grayscale(0%) saturate(1.08%);
+  transform: scale(1.08);
+}
+
+/* El contenedor también se eleva ligeramente */
+.hero-card:hover {
+  transform: translateY(-6px) scale(1.025);
+
+  border-color: rgba(217, 173, 98, .55);
+
+  box-shadow:
+  0 18px 45px rgba(0,0,0,.45),
+  0 0 28px rgba(217,173,98,.08);
+}
+
+/* Brillo suave que aparece al pasar el cursor */
+.hero-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  background:
+  linear-gradient(
+    115deg,
+    transparent 20%,
+    rgba(255,255,255,.08) 50%,
+                  transparent 80%
+  );
+
+  transform: translateX(-120%);
+
+  transition: transform .8s ease;
+}
+
+.hero-card:hover::after {
+  transform: translateX(120%);
+}
+
+
+/* =========================================================
+ *   MÓVIL
+ *   No forzamos el efecto hover porque no existe realmente.
+ *   Las imágenes permanecen en color para que sean visibles.
+ *   ========================================================= */
+
+@media (max-width: 700px) {
+  .hero-card img {
+    filter: grayscale(65%) saturate(.55);
+  }
+
+  .hero-card:active img {
+    filter: grayscale(0%) saturate(1.08);
+    transform: scale(1.05);
+  }
+
+  .hero-card::before {
+    display: none;
+  }
+}
+```
+/* =========================================================
+ *  PÁGINA 4 — HÉROES
+ *  GRIS → COLOR + PEQUEÑO ZOOM
+ *  ========================================================= */
+
+.hero-card {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition:
+  transform .35s ease,
+  box-shadow .4s ease,
+  border-color .4s ease;
+}
+
+/* -----------------------------------------
+ *  ESTADO NORMAL
+ *  Héroe completamente en gris
+ *  ----------------------------------------- */
+
+.hero-card img {
+  filter: grayscale(100%) saturate(0%) !important;
+  transform: scale(1) !important;
+
+  transition:
+  filter .55s ease,
+  transform .55s cubic-bezier(.2,.8,.2,1) !important;
+}
+
+/* -----------------------------------------
+ *  AL PASAR EL CURSOR
+ *  Recupera el color original
+ *  + pequeño zoom
+ *  ----------------------------------------- */
+
+.hero-card:hover img {
+  filter: grayscale(0%) saturate(1) !important;
+  transform: scale(1.045) !important;
+}
+
+/* Pequeño efecto de elevación */
+.hero-card:hover {
+  transform: translateY(-3px) !important;
+
+  box-shadow:
+  0 15px 35px rgba(0,0,0,.35);
+
+  border-color: rgba(217,173,98,.45);
+}
+
+```css
+```css
+
+/* -----------------------------------------
+ *  MÓVILES
+ *  ----------------------------------------- */
+
+@media (hover: none) {
+
+  .hero-card {
+    transform: none !important;
+  }
+
+  .hero-card img {
+    filter: grayscale(100%) saturate(0%) !important;
+    transform: scale(1) !important;
+  }
+
+  .hero-card::before {
+    display: none;
+  }
+}
+```css
+/* =========================================================
+ *   NOMBRES DE LOS HÉROES
+ *   ========================================================= */
+
+.hero-card .hero-name,
+.hero-card .name,
+.hero-card h3,
+.hero-card h4 {
+  color: #e8d6b0 !important;
+  -webkit-text-fill-color: #e8d6b0 !important;
+
+  text-shadow:
+  0 1px 3px rgba(0,0,0,.9),
+  0 0 12px rgba(217,173,98,.16);
+
+  font-weight: 600;
+  letter-spacing: .06em;
+
+  transition:
+  color .35s ease,
+  text-shadow .35s ease;
+}
+
+.hero-card:hover .hero-name,
+.hero-card:hover .name,
+.hero-card:hover h3,
+.hero-card:hover h4 {
+  color: #f3e4c4 !important;
+  -webkit-text-fill-color: #f3e4c4 !important;
+
+  text-shadow:
+  0 1px 4px rgba(0,0,0,.95),
+  0 0 18px rgba(217,173,98,.28);
+}
+```
