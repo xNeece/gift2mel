@@ -598,3 +598,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
   syncThemeUI();
 });
+
