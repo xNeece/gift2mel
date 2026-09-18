@@ -305,7 +305,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const modalCaption = $("#memory-modal-caption");
   const modalClose = $("#memory-modal-close");
 
-    $$(".gallery-card, .memory-image, .horror-image, .hero-card").forEach(card => {
+    $$(
+    ".gallery-card, .memory-image, .horror-image, .hero-card, .match-card"
+).forEach(card => {
     card.addEventListener("click", event => {
       const image = $("img", card);
       if (!image || !modal || !modalImage) return;
@@ -316,6 +318,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const caption =
         $(".gallery-caption", card)?.textContent?.trim() ||
         $(".image-caption", card)?.textContent?.trim() ||
+        $("figcaption", card)?.textContent?.trim() ||
         $("img", card)?.alt ||
         "Un pequeño recuerdo.";
 
