@@ -114,8 +114,37 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   /* =======================================================
-     MUSIC
-     ======================================================= */
+   M USIC & PLAYLIST                                           *
+   ======================================================= */
+  const playlist = [
+    { title: "Rooftop View 🐾", src: "assets/musica/musica.mp3" },
+    { title: "Understated Groove 🎀", src: "assets/musica/cancion2.mp3" },
+    { title: "No Rush 💛", src: "assets/musica/cancion4.mp3" },
+    { title: "Blueprint 🌷", src: "assets/musica/cancion3.mp3" }
+   
+  ];
+
+let currentTrackIndex = 0;
+
+  const musicPrev = $("#music-prev");
+  const musicNext = $("#music-next");
+  const musicTitleElement = $("#music-title");
+
+  function loadTrack(index) {
+    if (!backgroundMusic) return;
+    currentTrackIndex = index;
+    backgroundMusic.src = playlist[currentTrackIndex].src;
+
+    if (musicTitleElement) {
+      musicTitleElement.textContent = playlist[currentTrackIndex].title;
+    }
+    backgroundMusic.load();
+  }
+
+  if (backgroundMusic && playlist.length > 0) {
+    loadTrack(0);
+  }
+
   musicToggle?.addEventListener("click", async () => {
     if (!backgroundMusic) return;
 
@@ -132,6 +161,48 @@ document.addEventListener("DOMContentLoaded", () => {
       musicPausedByUser = true;
     }
     updateMusicButton();
+  });
+
+  musicNext?.addEventListener("click", async () => {
+    if (!backgroundMusic) return;
+    currentTrackIndex = (currentTrackIndex + 1) % playlist.length;
+    loadTrack(currentTrackIndex);
+
+    if (musicStarted && !musicPausedByUser) {
+      try {
+        await backgroundMusic.play();
+      } catch (err) {
+        console.log("Error al pasar a la siguiente canción:", err);
+      }
+    }
+    updateMusicButton();
+  });
+
+  musicPrev?.addEventListener("click", async () => {
+    if (!backgroundMusic) return;
+    currentTrackIndex = (currentTrackIndex - 1 + playlist.length) % playlist.length;
+    loadTrack(currentTrackIndex);
+
+    if (musicStarted && !musicPausedByUser) {
+      try {
+        await backgroundMusic.play();
+      } catch (err) {
+        console.log("Error al pasar a la canción anterior:", err);
+      }
+    }
+    updateMusicButton();
+  });
+
+  backgroundMusic?.addEventListener("ended", async () => {
+    currentTrackIndex = (currentTrackIndex + 1) % playlist.length;
+    loadTrack(currentTrackIndex);
+    if (musicStarted && !musicPausedByUser) {
+      try {
+        await backgroundMusic.play();
+      } catch (err) {
+        console.log("Error en autoplay:", err);
+      }
+    }
   });
 
   function updateMusicButton() {
@@ -602,3 +673,35 @@ document.addEventListener("DOMContentLoaded", () => {
   syncThemeUI();
 });
 
+const audio = document.getElementById('background-music');
+const progressInput = document.getElementById('music-progress');
+const currentTimeEl = document.getElementById('current-time');
+const durationEl = document.getElementById('duration');
+
+// Función auxiliar para formatear segundos a minutos:segundos (ej: 3:45)
+function formatTime(seconds) {
+    if (isNaN(seconds)) return "0:00";
+    const minutes = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+    return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
+}
+
+// Cuando carga la metadata del audio, definimos el tiempo total
+audio.addEventListener('loadedmetadata', () => {
+    durationEl.textContent = formatTime(audio.duration);
+    progressInput.max = audio.duration;
+});
+
+// Actualizar la barra y el minutero mientras avanza la canción
+audio.addEventListener('timeupdate', () => {
+    if (!isNaN(audio.duration)) {
+        progressInput.value = audio.currentTime;
+        currentTimeEl.textContent = formatTime(audio.currentTime);
+    }
+});
+
+// Permitir mover la barra con clic o arrastre
+progressInput.addEventListener('input', () => {
+    audio.currentTime = progressInput.value;
+    currentTimeEl.textContent = formatTime(audio.currentTime);
+});

@@ -129,6 +129,7 @@
              REPRODUCTOR DE MÚSICA
         ======================================= -->
 
+   
         <div class="music-player">
 
             <div class="music-info">
@@ -136,24 +137,31 @@
 
                 <div>
                     <small>▶︎•၊၊||၊|။|||||။၊|။•</small>
-                    <strong>Rooftop View 🐾</strong>
                 </div>
             </div>
+    <!-- Fila 1: Título de la canción -->
+    <div class="music-info">
+        <strong id="music-title">Rooftop View 🐾</strong>
+    </div>
 
-            <button id="music-toggle"
-                    class="music-button"
-                    aria-label="Pausar música">
+    <!-- Fila 2: Barra de tiempo y minutos -->
+    <div class="progress-container">
+        <span id="current-time">0:00</span>
+        <input type="range" id="music-progress" class="music-progress" value="0" min="0" max="100" step="0.1" aria-label="Progreso de la canción">
+        <span id="duration">0:00</span>
+    </div>
 
-                <span id="music-icon">Ⅱ</span>
+    <!-- Fila 3: Botones centrados abajo -->
+    <div class="music-controls">
+        <button id="music-prev" class="music-button" aria-label="Canción anterior">⏮</button>
+        <button id="music-toggle" class="music-button" aria-label="Pausar música">
+            <span id="music-icon">Ⅱ</span>
+        </button>
+        <button id="music-next" class="music-button" aria-label="Canción siguiente">⏭</button>
+    </div>
+</div>
 
-            </button>
-
-        </div>
-
-        <audio id="background-music"
-               src="assets/musica/musica.mp3"
-               loop>
-        </audio>
+<audio id="background-music" loop></audio>
 
 
         <!-- ======================================
@@ -1059,8 +1067,8 @@
             </h2>
 
             <p>
-                Espero que este pequeño rincón
-                te acompañe un poquito.
+                ¡Espero que este pequeño rincón
+                te haya gustado mucho!.
             </p>
 
             <button id="close-ending">
