@@ -3144,4 +3144,28 @@ background: rgba(217, 173, 98, .12);
   0 0 18px rgba(217,173,98,.28);
 }
 ```
+/* =========================================================
+   CORRECCIÓN DE SECUENCIA PARA INSERCIÓN DE PÁGINA 5
+   ========================================================= */
 
+/* Asegura que todas las páginas del libro se comporten como capas estables */
+.book .page {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  box-sizing: border-box !important;
+  backface-visibility: hidden !important;
+  -webkit-backface-visibility: hidden !important;
+}
+
+/* Sincronización automática de apilamiento para cualquier cantidad de páginas */
+.book .page[data-page="1"] { z-index: 10; }
+.book .page[data-page="2"] { z-index: 9; }
+.book .page[data-page="3"] { z-index: 8; }
+.book .page[data-page="4"] { z-index: 7; }
+.book .page[data-page="5"] { z-index: 6; }
+.book .page[data-page="6"] { z-index: 5; }
+.book .page[data-page="7"] { z-index: 4; }
+.book .page[data-page="8"] { z-index: 3; }
+.book .page[data-page="9"] { z-index: 2; }
