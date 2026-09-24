@@ -495,7 +495,7 @@ body::before{
 .horror-image:hover img{transform:scale(1.045)}
 .horror-overlay{position:absolute;inset:0;pointer-events:none;opacity:.08;background:radial-gradient(circle at 50% 45%,transparent 0 25%,#5c303b 75%);mix-blend-mode:multiply}
 .scanlines{position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,transparent 0 3px,rgba(255,255,255,.06) 4px);mix-blend-mode:screen}
-.horror-text{position:relative;padding:10px}
+.horror-text{position:relative;padding:20px}
 .horror-text p{margin-bottom:14px}
 .glitch-text{position:relative;color:#76585e!important}
 .glitch-text::before{content:"";position:absolute;left:0;right:25%;height:1px;top:50%;background:rgba(185,120,145,.45);animation:glitchLine 2.5s steps(2,end) infinite}
@@ -2315,7 +2315,7 @@ html[data-theme="light"] .ending-content button{
 /* Página IV: Pompompurin jugando, arriba a la derecha. */
 .page[data-page="4"] .page4-playing-render{
   position:absolute!important;
-  top:-4px!important;
+  top:-20px!important;
   right:-10px!important;
   width:158px!important;
   height:158px!important;
@@ -3610,4 +3610,17 @@ body[data-theme="light"] #memory-modal-caption {
     justify-content: center;
     gap: 12px;
     width: 100%;
+}
+.decoracion-esquina {
+  position:absolute!important;
+  top:-17px!important;
+  right:5px!important;
+  width:158px!important;
+  height:150px!important;
+  object-fit:contain!important;
+  z-index:3!important;
+  pointer-events:none!important;
+  filter:drop-shadow(0 10px 12px rgba(74,50,53,.15));
+  animation:albumRenderFloat_v39 7.2s ease-in-out infinite!important;
+  animation-delay:-1.1s!important;
 }
